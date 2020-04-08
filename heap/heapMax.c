@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 #include <stdlib.h>
+# include "utils.h"
 int *heap;
 int tam_max = 50;
 int tam_atual = 0;
@@ -21,7 +22,8 @@ void menu(){
         printf("2-inserir\n");
         printf("3-remover\n");
         printf("4-exibir heap\n");
-        printf("5-sair\n");
+        printf("5-heapsort\n");
+        printf("6-sair\n");
         scanf("%d",&op);
         switch (op)
         {
@@ -36,11 +38,16 @@ void menu(){
             break;
         case 4:
             printHeapMax(heap,tam_atual);
-            break;    
+            break; 
+        case 5:
+            heapsort(heap,tam_atual);
+            printf("Vetor ordenado com Heap sort");
+            printHeapMax(heap,tam_atual);
+            break;   
         default:
             break;
         }
-    } while (op!=5);
+    } while (op!=6);
     
 }
 void start(){
@@ -98,7 +105,7 @@ void descer(int *H,int n, int i){
             aux = H[j-1];
             H[j-1] = H[f-1];
             H[f-1] = aux;
-            printHeapMax(heap,tam_atual);
+            // printHeapMax(heap,tam_atual);
             // printf("Valores do while descer final: H[j]=%d H[f]=%d\n",H[j-1],H[f-1]);
             j = f;
         }
