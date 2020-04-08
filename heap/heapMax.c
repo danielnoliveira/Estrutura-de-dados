@@ -4,7 +4,7 @@
 int *heap;
 int tam_max = 50;
 int tam_atual = 0;
-int metodo_construcao = 0;//0-descer,1-descer
+int metodo_construcao = 0;//0-descer,1-subir
 void printHeapMax(int *H,int n);
 void construirHeapMax(int *H,int n);
 void descer(int *H,int n,int i);
